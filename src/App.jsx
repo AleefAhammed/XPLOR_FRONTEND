@@ -11,6 +11,7 @@ import FavContent from "./pages/Favourites"
 import UserEditPage from "./pages/UserEditPage"
 import EditProductPage from "./pages/EditProductPage"
 import { loader as routeLoader } from "./Loaders/RouteLoader"
+import Test from "./components/Test"
 
 
 export function App() {
@@ -59,6 +60,10 @@ export function App() {
           path: "/editproduct/:id",
           element: <EditProductPage />
         },
+        {
+          path: '/test',
+          element: <Test />
+        }
       ]
     }
 

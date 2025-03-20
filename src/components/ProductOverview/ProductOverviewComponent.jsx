@@ -15,6 +15,7 @@ import { FitnessCenter } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductById } from '../../Redux/Slices/ProductById';
 import moment from 'moment/moment';
+import Test from '../Test';
 
 function ProductOverviewComponent({ id }) {
 
@@ -38,22 +39,13 @@ function ProductOverviewComponent({ id }) {
       <OverviewSubHeader product={product} />
 
       {/* photo of the property */}
-      <div className='w-full flex md:px-20 xl:px-40 py-2'>
+      <div className='w-full flex px-5 md:px-20 xl:px-40 py-2'>
 
-        <div className='w-full h-max flex flex-row gap-x-2 items-center'>
+        {/* <div className='w-full h-max flex overflow-y-auto'> */}
 
-          <div className='grid grid-col-1 md:w-1/2 w-full'>
-            <img src="/public/Images/600X4002.jpg" alt="" className='object-cover h-customHeight w-full md:rounded-l-lg' />
-          </div>
+          <Test />
 
-          <div className='md:grid md:grid-cols-2 gap-x-2 gap-y-2 hidden'>
-            <img src="/public/Images/200X150.jpg" alt="" className='object-cover md:w-customeWidth lg:w-customeWidth1 h-customHeight1 shrink' />
-            <img src="/public/Images/200X150.jpg" alt="" className='object-cover md:w-customeWidth lg:w-customeWidth1 h-customHeight1 shrink rounded-tr-lg' />
-            <img src="/public/Images/200X150.jpg" alt="" className='object-cover md:w-customeWidth lg:w-customeWidth1 h-customHeight1 shrink' />
-            <img src="/public/Images/200X150.jpg" alt="" className='object-cover md:w-customeWidth lg:w-customeWidth1 h-customHeight1 shrink rounded-br-lg' />
-          </div>
-
-        </div>
+        {/* </div> */}
       </div>
 
       {/* location */}
