@@ -15,7 +15,7 @@ import { FitnessCenter } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductById } from '../../Redux/Slices/ProductById';
 import moment from 'moment/moment';
-import Test from '../Test';
+import ImagesWindow from './ImagesWindow';
 
 function ProductOverviewComponent({ id }) {
 
@@ -43,7 +43,7 @@ function ProductOverviewComponent({ id }) {
 
         {/* <div className='w-full h-max flex overflow-y-auto'> */}
 
-          <Test />
+          <ImagesWindow />
 
         {/* </div> */}
       </div>

@@ -6,7 +6,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 import { MobileDatePicker } from '@mui/x-date-pickers'; import Dropdown from './Dropdown';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 
 function BookingComponent({ product }) {
 
@@ -19,6 +19,8 @@ function BookingComponent({ product }) {
     const [serviceFee, setServiceFee] = useState(500);
     const [bookingAmount, setBookingAmount] = useState('');
     const [image, setImage] = useState('')
+
+    const { user, isLoggedIn } = useSelector((state) => state.user)
 
     useEffect(() => {
 
@@ -85,20 +87,29 @@ function BookingComponent({ product }) {
 
     const makePayment = async (e) => {
 
+
         const formData = new FormData();
         formData.append("amount", bookingAmount)
         console.log("FormData before sending:", [...formData.entries()]);
 
-        try {
-            const orderUrl = `${import.meta.env.VITE_SERVER_URL}/payment/orders`;
-            const { data } = await axios.post(orderUrl, formData, {
-                headers: { "Content-Type": "application/json" },
-                withCredentials: true
-            });
-            console.log(data);
-            initPayment(data.data);
-        } catch (error) {
-            console.log(error);
+        if (isLoggedIn) {
+            try {
+
+
+                const orderUrl = `${import.meta.env.VITE_SERVER_URL}/payment/orders`;
+                const { data } = await axios.post(orderUrl, formData, {
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true
+                });
+                console.log(data);
+                initPayment(data.data);
+            } catch (error) {
+                console.log(error);
+            }
+        } else if (!isLoggedIn) {
+
+            alert("Login to use this feature");
+            // alert()
         }
     }
 

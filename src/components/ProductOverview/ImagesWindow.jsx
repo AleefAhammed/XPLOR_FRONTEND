@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductById } from '../Redux/Slices/ProductById';
+import { getProductById } from '../../Redux/Slices/ProductById';
 import { useParams } from 'react-router-dom';
 
 Modal.setAppElement("#root"); // Required for accessibility
 
-export default function Test() {
+export default function ImagesWindow() {
     const [isOpen, setIsOpen] = useState(false);
     const { data: product } = useSelector((state) => state.productById);
     const { id } = useParams();
