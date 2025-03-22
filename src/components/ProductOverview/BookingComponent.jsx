@@ -57,10 +57,10 @@ function BookingComponent({ product }) {
         }
 
         const options = {
-            key: `${import.meta.env.VITE_KEY_ID}`,
+            key: `${import.meta.env.VITE_RAZORPAY_KEY_ID}`,
             amount: data.amount,
             currency: data.currency,
-            name: product?.porpertyName,
+            name: product?.propertyName,
             // description: product?.description,
             image: product?.images[0],
             order_id: data.id,
@@ -71,7 +71,7 @@ function BookingComponent({ product }) {
                     console.log(data);
                     if (data.success) {
 
-                        window.location.reload()
+                        // window.location.reload()
                     }
                 } catch (error) {
                     console.log(error);
@@ -90,7 +90,7 @@ function BookingComponent({ product }) {
 
         const formData = new FormData();
         formData.append("amount", bookingAmount)
-        console.log("FormData before sending:", [...formData.entries()]);
+        // console.log("FormData before sending:", [...formData.entries()]);
 
         if (isLoggedIn) {
             try {
@@ -101,7 +101,7 @@ function BookingComponent({ product }) {
                     headers: { "Content-Type": "application/json" },
                     withCredentials: true
                 });
-                console.log(data);
+                // console.log(data);
                 initPayment(data.data);
             } catch (error) {
                 console.log(error);
