@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import FavHeader from '../components/Favourites/FavHEader'
+import FavHeader from '../components/Favourites/FavHeader'
 import FavBody from '../components/Favourites/FavBody'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
