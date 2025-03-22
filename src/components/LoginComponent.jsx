@@ -40,7 +40,8 @@ function LoginComponent() {
 
         // Delay navigation by 1.5s
         setTimeout(() => {
-          navigate('/')
+          // navigate('/')
+          window.location.href = '/'
         }, 2000);
 
       }
